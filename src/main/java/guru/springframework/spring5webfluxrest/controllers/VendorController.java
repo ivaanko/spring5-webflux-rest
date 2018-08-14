@@ -50,12 +50,12 @@ public class VendorController {
 
         boolean changed = false;
 
-        if (foundVendor.getFirstName() != vendor.getFirstName()) {
+        if (!foundVendor.getFirstName().equals(vendor.getFirstName())) {
             foundVendor.setFirstName(vendor.getFirstName());
             changed = true;
         }
 
-        if (foundVendor.getLastName() != vendor.getLastName()) {
+        if (!foundVendor.getLastName().equals(vendor.getLastName())) {
             foundVendor.setLastName(vendor.getLastName());
             changed = true;
         }

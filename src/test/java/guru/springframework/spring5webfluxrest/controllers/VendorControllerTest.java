@@ -111,12 +111,12 @@ public class VendorControllerTest {
     public void testPatchNoDiff() {
 
         given(vendorRepository.findById(anyString()))
-                .willReturn(Mono.just(Vendor.builder().build()));
+                .willReturn(Mono.just(Vendor.builder().firstName("Ivan").lastName("Korolev").build()));
 
         given(vendorRepository.save(any(Vendor.class)))
                 .willReturn(Mono.just(Vendor.builder().build()));
 
-        Mono<Vendor> vendorMonoToPatch = Mono.just(Vendor.builder().build());
+        Mono<Vendor> vendorMonoToPatch = Mono.just(Vendor.builder().firstName("Ivan").lastName("Korolev").build());
 
         webTestClient.patch()
                 .uri("/api/v1/vendors/ivanko")
